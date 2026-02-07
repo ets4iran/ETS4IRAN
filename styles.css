@@ -658,10 +658,19 @@ p {
   margin-top: 40px;
   padding-top: 40px;
   border-top: 1px solid rgba(229, 57, 53, 0.15);
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.timeline-event-final .event-image {
+  min-height: 500px;
 }
 
 .timeline-event-final .event-image img {
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* Dot on the spine */
@@ -1582,6 +1591,10 @@ p {
 
   .timeline-event:nth-child(even) .event-image {
     order: unset;
+  }
+
+  .timeline-event-final .event-image {
+    min-height: 400px;
   }
 
   .stats-grid {
