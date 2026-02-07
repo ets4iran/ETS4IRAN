@@ -660,6 +660,10 @@ p {
   border-top: 1px solid rgba(229, 57, 53, 0.15);
 }
 
+.timeline-event-final .event-image img {
+  height: 400px;
+}
+
 /* Dot on the spine */
 .timeline-event::before {
   content: '';
