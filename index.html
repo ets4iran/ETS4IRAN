@@ -8,11 +8,17 @@
   <meta property="og:title" content="ETS4IRAN — Stand With The People of Iran">
   <meta property="og:description" content="Over 43,000 civilians killed in less than 3 days. This is not a political conflict. It is state violence against civilians.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ets4iran.github.io/ETS4IRAN/">
+  <meta property="og:site_name" content="ETS4IRAN">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ETS4IRAN — Stand With The People of Iran">
+  <meta name="twitter:description" content="Over 43,000 civilians killed in less than 3 days. This is not a political conflict. It is state violence against civilians.">
+  <link rel="canonical" href="https://ets4iran.github.io/ETS4IRAN/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
   <!-- Preload critical resources -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" as="script">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" as="script">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" as="script" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" as="script" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
 
   <!-- Fonts -->
@@ -52,7 +58,7 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <img src="assets/images/hero-night-protests.png" alt="Night protests in Iran with phone lights" loading="eager">
+      <img src="assets/images/hero-night-protests.png" alt="" loading="eager">
     </div>
     <div class="hero-content">
       <h1>
@@ -117,7 +123,7 @@
       <div class="content-grid">
         <div class="text-content">
           <span class="section-label reveal" data-i18n="regimeLabel">The Truth</span>
-          <h2 class="regime-title reveal" data-text="Islamic Republic ≠ Iran">
+          <h2 class="regime-title reveal">
             <span data-i18n="regimeTitle1">Islamic Republic</span>
             <span class="ne" data-i18n="regimeNe">≠</span>
             <span data-i18n="regimeTitle2">Iran</span>
@@ -215,7 +221,7 @@
         </div>
         <div class="event-image event-image-memorial">
           <div class="memorial-placeholder">
-            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="none"/><line x1="12" y1="6" x2="12" y2="14"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="none"/><line x1="12" y1="6" x2="12" y2="14"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
             <p class="memorial-text" data-i18n="t1980Memorial">Classified as crimes against humanity by Human Rights Watch</p>
           </div>
         </div>
@@ -353,7 +359,7 @@
   <!-- REVOLUTION -->
   <section class="section revolution-section" id="revolution">
     <div class="revolution-bg">
-      <img src="assets/images/revolution-night-crowd.png" alt="Night crowd protests" loading="lazy">
+      <img src="assets/images/revolution-night-crowd.png" alt="" loading="lazy">
     </div>
     <div id="revolution-particles"></div>
     <div class="container revolution-content">
@@ -375,6 +381,10 @@
         <div class="stat-card highlight reveal">
           <div class="stat-number" id="stat2" data-i18n="revStat2Num">43,000+</div>
           <div class="stat-label" data-i18n="revStat2Label">Estimated civilian deaths</div>
+          <div class="ghost-counter-wrap" aria-hidden="true">
+            <span class="ghost-counter"></span>
+            <span class="ghost-label" data-i18n="ghostLabel">the true number, hidden by the blackout</span>
+          </div>
         </div>
         <div class="stat-card reveal">
           <div class="stat-number" id="stat3" data-i18n="revStat3Num">~10</div>
@@ -413,14 +423,15 @@
           <div class="chart-row chart-row-iran">
             <div class="chart-row-label">Iran Revolution<br><span class="bar-sublabel">Jan 2026 · 3 days</span></div>
             <div class="chart-row-bar-wrap">
-              <div class="chart-row-bar iran-bar" data-width="100" data-delay="1.0"><span class="chart-row-value">43,000+</span></div>
+              <div class="chart-row-bar iran-bar" data-width="100" data-delay="1.0"><span class="chart-row-value">43,000+</span><canvas class="bar-static" width="80" height="18" aria-hidden="true"></canvas></div>
             </div>
+            <span class="chart-unknown-below" data-i18n="chartUnknown">true toll unknown</span>
           </div>
         </div>
       </div>
 
-      <div class="blackout-info reveal">
-        <div class="blackout-icon"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--accent-red)" stroke-width="2"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+      <div class="blackout-info reveal" id="blackout-card">
+        <div class="blackout-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--accent-red)" stroke-width="2"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
         <div>
           <h4 data-i18n="blackoutTitle">Near-Total Internet Blackout</h4>
           <p data-i18n="blackoutDesc">Authorities imposed a nationwide internet shutdown starting January 8 to conceal the true scale of atrocities. This is a key factor making independent death toll verification impossible.</p>
@@ -450,36 +461,36 @@
 
       <div class="share-buttons reveal">
         <a class="share-btn twitter" href="#" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           <span data-i18n="shareTwitter">Share on X</span>
         </a>
         <a class="share-btn facebook" href="#" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           <span data-i18n="shareFacebook">Share on Facebook</span>
         </a>
         <a class="share-btn copy-link" href="#">
-          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
           <span data-i18n="shareCopyLink">Copy Link</span>
         </a>
       </div>
 
       <div class="action-list action-list-primary">
         <div class="action-item action-primary reveal">
-          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="action-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <h4 data-i18n="action1Title">Contact Officials</h4>
             <p data-i18n="action1Desc">Contact Canadian and Quebec officials. Demand action against the regime and request the immediate release of prisoners in danger of execution.</p>
           </div>
         </div>
         <div class="action-item action-primary reveal">
-          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+          <div class="action-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
           <div>
             <h4 data-i18n="action3Title">Speak Up</h4>
             <p data-i18n="action3Desc">Raise awareness with family and friends, and share verified information on social media (Instagram, X, Facebook, TikTok).</p>
           </div>
         </div>
         <div class="action-item action-primary reveal">
-          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div class="action-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <div>
             <h4 data-i18n="action6Title">Pass It On</h4>
             <p data-i18n="action6Desc">Read this, then pass it on. Be our voice.</p>
@@ -488,21 +499,21 @@
       </div>
       <div class="action-list action-list-secondary">
         <div class="action-item action-secondary reveal">
-          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="none"/><path d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div class="action-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="none"/><path d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
           <div>
             <h4 data-i18n="action2Title">Join Our Rally</h4>
             <p data-i18n="action2Desc">Join our rally in Montreal every weekend to show support and solidarity.</p>
           </div>
         </div>
         <div class="action-item action-secondary reveal">
-          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+          <div class="action-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
           <div>
             <h4 data-i18n="action4Title">Install Conduit</h4>
             <p data-i18n="action4Desc">Help Iranians stay connected by installing Conduit on your device.</p>
           </div>
         </div>
         <div class="action-item action-secondary reveal">
-          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div class="action-icon"><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div>
             <h4 data-i18n="action5Title">Demand Accountability</h4>
             <p data-i18n="action5Desc">Demand the deportation of IRGC officials' families from Canada.</p>
@@ -518,7 +529,7 @@
           <p data-i18n="ctaScan">Scan for more info, daily updates, and protest schedule</p>
           <p data-i18n="ctaTelegram">Join our Telegram group for collaboration and updates</p>
           <a class="telegram-btn" href="#" data-link="telegram" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             <span data-i18n="ctaTelegramBtn">Join ETS4IRAN on Telegram</span>
           </a>
         </div>
@@ -535,16 +546,15 @@
 
   <!-- Floating CTA Button -->
   <a class="floating-cta" href="#help" aria-label="Take Action">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
     <span data-i18n="navHelp">Help</span>
   </a>
 
   <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>

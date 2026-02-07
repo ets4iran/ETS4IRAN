@@ -125,6 +125,8 @@ const i18n = {
     revStat3Label: "People killed every minute during peak violence",
     revSource: "Source: International Human Rights Report",
     chartTitle: "Scale of Violence — Massacres in History",
+    chartUnknown: "true toll unknown",
+    ghostLabel: "the true number, hidden by the blackout",
     blackoutTitle: "Near-Total Internet Blackout",
     blackoutDesc: "Authorities imposed a nationwide internet shutdown starting January 8 to conceal the true scale of atrocities. This is a key factor making independent death toll verification impossible.",
     detentionTitle: "Nationwide Shutdown and Repression",
@@ -263,6 +265,8 @@ const i18n = {
     revStat3Label: "Personnes tuées chaque minute au pic de la violence",
     revSource: "Source : Rapport international des droits de l'homme",
     chartTitle: "Échelle de la Violence — Massacres dans l'Histoire",
+    chartUnknown: "bilan réel inconnu",
+    ghostLabel: "le vrai nombre, caché par la coupure internet",
     blackoutTitle: "Coupure Internet Quasi Totale",
     blackoutDesc: "Les autorités ont imposé une coupure internet à l'échelle nationale à partir du 8 janvier pour dissimuler l'ampleur réelle des atrocités. C'est un facteur clé rendant la vérification indépendante du bilan impossible.",
     detentionTitle: "Fermeture Nationale et Répression",
@@ -433,18 +437,25 @@ function initAnimations() {
 
   const neSymbol = document.querySelector('.regime-title .ne');
   if (neSymbol) {
-    gsap.set(neSymbol, { scale: 0, opacity: 0 });
     ScrollTrigger.create({
       trigger: '.regime-title',
       start: 'top 80%',
       once: true,
       onEnter: () => {
         gsap.to(neSymbol, {
+          y: 0,
           scale: 1,
           opacity: 1,
-          duration: 1,
-          ease: 'elastic.out(1.2, 0.4)',
-          onComplete: () => neSymbol.classList.add('animated'),
+          duration: 0.4,
+          ease: 'power4.in',
+          onComplete: () => {
+            neSymbol.classList.add('animated');
+            // Brief overshoot down then settle
+            gsap.fromTo(neSymbol,
+              { y: 4, scale: 0.95 },
+              { y: 0, scale: 1, duration: 0.3, ease: 'power2.out' }
+            );
+          },
         });
       }
     });
@@ -487,6 +498,12 @@ function initAnimations() {
   initCounter('#stat3', 10, '~', '', true, 0.8);
 
   initBarChart();
+
+  // Ghost counter: cycles through uncertain higher numbers
+  initGhostCounter();
+
+  // Static noise on Iran bar in massacre chart
+  initBarStatic();
 
   gsap.to('.hero-bg img', {
     y: 100,
@@ -554,8 +571,132 @@ function initBarChart() {
   });
 }
 
+function initGhostCounter() {
+  const wrap = document.querySelector('.ghost-counter-wrap');
+  const ghost = document.querySelector('.ghost-counter');
+  if (!wrap || !ghost) return;
+
+  const targets = [50000, 70000, 100000, 130000, 150000];
+  let idx = 0;
+  let current = DEATH_TOLL;
+  let started = false;
+  let visible = false;
+  let rafId = null;
+  let timeoutId = null;
+
+  function animateToNext() {
+    if (!visible) return;
+    const target = targets[idx % targets.length];
+    const duration = 5000;
+    const start = performance.now();
+    const startVal = current;
+
+    function step(now) {
+      if (!visible) return;
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      current = Math.floor(startVal + (target - startVal) * eased);
+      ghost.textContent = current.toLocaleString() + '+?';
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        idx++;
+        if (idx >= targets.length) {
+          idx = 0;
+          current = DEATH_TOLL;
+        }
+        timeoutId = setTimeout(animateToNext, 2000);
+      }
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  const observer = new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    if (visible && started) {
+      animateToNext();
+    }
+  }, { threshold: 0 });
+  observer.observe(wrap);
+
+  ScrollTrigger.create({
+    trigger: wrap,
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      if (started) return;
+      started = true;
+      wrap.classList.add('active');
+      timeoutId = setTimeout(animateToNext, 800);
+    }
+  });
+}
+
+function initBarStatic() {
+  const canvas = document.querySelector('.bar-static');
+  const iranBar = document.querySelector('.iran-bar');
+  const unknownLabel = document.querySelector('.chart-unknown-below');
+  if (!canvas || !iranBar) return;
+
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width;
+  const h = canvas.height;
+  let animId = null;
+  let started = false;
+
+  function renderNoise() {
+    const imageData = ctx.createImageData(w, h);
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      const v = Math.random() * 255;
+      imageData.data[i] = v * 0.9;
+      imageData.data[i + 1] = v * 0.15;
+      imageData.data[i + 2] = v * 0.15;
+      imageData.data[i + 3] = 50;
+    }
+    ctx.putImageData(imageData, 0, 0);
+    animId = requestAnimationFrame(renderNoise);
+  }
+
+  function stopNoise() {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+  }
+
+  // Pause/resume when off/on screen
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && started) {
+      renderNoise();
+    } else {
+      stopNoise();
+    }
+  }, { threshold: 0 });
+  observer.observe(canvas);
+
+  // Trigger after Iran bar finishes growing (~2.5s after chart enters)
+  ScrollTrigger.create({
+    trigger: iranBar,
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      setTimeout(() => {
+        started = true;
+        canvas.classList.add('active');
+        renderNoise();
+        if (unknownLabel) {
+          setTimeout(() => unknownLabel.classList.add('active'), 600);
+        }
+      }, 2800);
+    }
+  });
+}
+
 function initLenis() {
   if (typeof Lenis === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const lenis = new Lenis({
     duration: 1.2,
@@ -598,37 +739,63 @@ function initCurtainReveal() {
   });
 }
 
-function initParticles() {
-  if (typeof tsParticles === 'undefined') return;
+function initPetals() {
+  const container = document.getElementById('revolution-particles');
+  if (!container) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  tsParticles.load('revolution-particles', {
-    fpsLimit: 60,
-    particles: {
-      number: { value: 30, density: { enable: true, area: 1000 } },
-      color: { value: ['#E53935', '#D4A843', '#FF6B35'] },
-      shape: { type: 'circle' },
-      opacity: {
-        value: { min: 0.1, max: 0.4 },
-        animation: { enable: true, speed: 0.5, minimumValue: 0.05 }
-      },
-      size: {
-        value: { min: 1, max: 3 },
-        animation: { enable: true, speed: 1, minimumValue: 0.5 }
-      },
-      move: {
-        enable: true,
-        speed: { min: 0.3, max: 1 },
-        direction: 'top',
-        outModes: { default: 'out' },
-        random: true,
-      },
-      life: {
-        duration: { sync: false, value: { min: 3, max: 6 } },
-        count: 0,
-      }
-    },
-    detectRetina: true,
-  });
+  const PETAL_COUNT = 18;
+  const COLORS = [
+    'rgba(180, 30, 30, 0.6)',
+    'rgba(200, 40, 35, 0.5)',
+    'rgba(160, 20, 25, 0.55)',
+    'rgba(140, 15, 20, 0.45)',
+    'rgba(190, 50, 40, 0.5)',
+  ];
+
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.className = 'rose-petal';
+
+    const size = 12 + Math.random() * 18;
+    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const left = Math.random() * 100;
+    const delay = Math.random() * 12;
+    const duration = 10 + Math.random() * 8;
+    const drift = -40 + Math.random() * 80;
+    const rotateStart = Math.random() * 360;
+    const rotateEnd = rotateStart + 180 + Math.random() * 360;
+
+    petal.style.cssText = `
+      width: ${size}px;
+      height: ${size * 0.7}px;
+      left: ${left}%;
+      background: ${color};
+      animation-delay: ${delay}s;
+      animation-duration: ${duration}s;
+      --drift: ${drift}px;
+      --rotate-start: ${rotateStart}deg;
+      --rotate-end: ${rotateEnd}deg;
+    `;
+
+    container.appendChild(petal);
+  }
+
+  for (let i = 0; i < PETAL_COUNT; i++) {
+    createPetal();
+  }
+
+  // Pause petal animations when off-screen
+  const section = container.closest('.revolution-section');
+  if (section) {
+    const observer = new IntersectionObserver(([entry]) => {
+      container.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      container.querySelectorAll('.rose-petal').forEach(p => {
+        p.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      });
+    }, { threshold: 0 });
+    observer.observe(section);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -671,7 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initFloatingCTA();
-  initParticles();
+  initPetals();
 });
 
 function initFloatingCTA() {
