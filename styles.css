@@ -871,21 +871,36 @@ p {
   font-size: clamp(3rem, 6vw, 4.5rem);
 }
 
-.stats-source {
-  text-align: center;
-  margin-top: -40px;
-  margin-bottom: 48px;
-  font-size: 0.75rem;
+.event-source {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.7rem;
 }
 
+.event-source a,
+.section-source a,
 .stats-source a {
   color: var(--text-muted);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
+.event-source a:hover,
+.section-source a:hover,
 .stats-source a:hover {
   color: var(--text-secondary);
+}
+
+.section-source {
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+
+.stats-source {
+  text-align: center;
+  margin-top: -40px;
+  margin-bottom: 48px;
+  font-size: 0.75rem;
 }
 
 /* Horizontal bar chart */
@@ -1485,6 +1500,10 @@ p {
 
 .timeline-event:nth-child(even) .event-image.revealed {
   clip-path: inset(0 0 0 0%);
+}
+
+.timeline-event .event-image-memorial {
+  clip-path: none !important;
 }
 
 /* --- Revolution Particles Container --- */

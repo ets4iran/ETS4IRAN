@@ -1,3 +1,24 @@
+const DEATH_TOLL = 43000;
+const DEATH_TOLL_EN = DEATH_TOLL.toLocaleString('en-US') + '+';
+const DEATH_TOLL_FR = DEATH_TOLL.toLocaleString('fr-FR') + '+';
+
+const LINKS = {
+  telegram: 'https://t.me/+U08o10_iOSA0Yzk0',
+  twitter: 'https://twitter.com/intent/tweet',
+  facebook: 'https://www.facebook.com/sharer/sharer.php',
+  source: 'https://humanrightsintl.com/2026/01/20/latest-human-rights-report-43000-killed-in-the-crackdown-on-protests-in-iran-for-immediate-release/',
+  polishRefugees: 'https://encyclopedia.ushmm.org/content/en/article/polish-refugees-in-iran-during-world-war-ii',
+  canadaSevered: 'https://www.cbc.ca/news/politics/canada-closes-embassy-in-iran-expels-iranian-diplomats-1.1166509',
+  executions1988: 'https://www.hrw.org/news/2022/06/08/iran-1988-mass-executions-evident-crimes-against-humanity',
+  bloodyNovember: 'https://www.hrw.org/news/2020/11/17/iran-no-justice-bloody-2019-crackdown',
+  ps752: 'https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/response_conflict-reponse_conflits/crisis-crises/flight-vol-ps752.aspx?lang=eng',
+  mahsaAmini: 'https://www.amnesty.org/en/latest/news/2023/09/what-happened-to-mahsa-zhina-amini/',
+  rev2025Hrw: 'https://www.hrw.org/news/2026/01/16/iran-growing-evidence-of-countrywide-massacres',
+  rev2025Amnesty: 'https://www.amnesty.org/en/latest/news/2026/01/iran-authorities-unleash-heavily-militarized-clampdown-to-hide-protest-massacres/',
+  blackout: 'https://www.amnesty.org/en/latest/news/2026/01/internet-shutdown-in-iran-hides-violations-in-escalating-protests/',
+  detention: 'https://www.amnesty.org/en/documents/mde13/0673/2026/en/',
+};
+
 const i18n = {
   en: {
     // Nav
@@ -90,7 +111,7 @@ const i18n = {
     t2025D2: "Rapidly expanded nationwide across multiple cities",
     t2025D3: "Peak of protests: January 8 and 9, following a call by Prince Reza Pahlavi",
     t2025D4: "Unofficial estimates: 20–30 million participants nationwide",
-    t2025Death: "Estimated deaths: 43,000+",
+    t2025Death: `Estimated deaths: ${DEATH_TOLL_EN}`,
     // Revolution
     revLabel: "Current Crisis",
     revTitle: "Iran Sun and Lion National Revolution",
@@ -98,7 +119,7 @@ const i18n = {
     revCallout: "In just 3 days, the Iranian regime killed more civilians than many of the worst massacres in modern history combined.",
     revStat1Num: "30M+",
     revStat1Label: "Estimated participants nationwide",
-    revStat2Num: "43,000+",
+    revStat2Num: DEATH_TOLL_EN,
     revStat2Label: "Estimated civilian deaths",
     revStat3Num: "~10",
     revStat3Label: "People killed every minute during peak violence",
@@ -228,7 +249,7 @@ const i18n = {
     t2025D2: "Extension rapide à travers le pays dans de multiples villes",
     t2025D3: "Apogée des manifestations : 8 et 9 janvier, suite à l'appel du Prince Reza Pahlavi",
     t2025D4: "Estimations non-officielles : 20 à 30 millions de participants",
-    t2025Death: "Estimations des décès : 43 000+",
+    t2025Death: `Estimations des décès : ${DEATH_TOLL_FR}`,
     // Revolution
     revLabel: "Crise Actuelle",
     revTitle: "Révolution Nationale du Soleil et du Lion d'Iran",
@@ -236,7 +257,7 @@ const i18n = {
     revCallout: "En seulement 3 jours, le régime iranien a tué plus de civils que de nombreux pires massacres de l'histoire moderne réunis.",
     revStat1Num: "30M+",
     revStat1Label: "Participants estimés à travers le pays",
-    revStat2Num: "43 000+",
+    revStat2Num: DEATH_TOLL_FR,
     revStat2Label: "Décès civils estimés",
     revStat3Num: "~10",
     revStat3Label: "Personnes tuées chaque minute au pic de la violence",
@@ -308,17 +329,17 @@ function setLanguage(lang) {
 function updateShareLinks() {
   const pageUrl = window.location.href;
   const text = currentLang === 'fr'
-    ? 'Soutenez le peuple iranien pour la liberté. Plus de 43 000 civils ont été tués. #ETS4IRAN #IranRevolution'
-    : 'Stand with the people of Iran for freedom. Over 43,000 civilians killed. #ETS4IRAN #IranRevolution';
+    ? `Soutenez le peuple iranien pour la liberté. Plus de ${DEATH_TOLL_FR} civils ont été tués. #ETS4IRAN #IranRevolution`
+    : `Stand with the people of Iran for freedom. Over ${DEATH_TOLL_EN} civilians killed. #ETS4IRAN #IranRevolution`;
 
   const twitterBtn = document.querySelector('.share-btn.twitter');
   if (twitterBtn) {
-    twitterBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(pageUrl)}`;
+    twitterBtn.href = `${LINKS.twitter}?text=${encodeURIComponent(text)}&url=${encodeURIComponent(pageUrl)}`;
   }
 
   const fbBtn = document.querySelector('.share-btn.facebook');
   if (fbBtn) {
-    fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+    fbBtn.href = `${LINKS.facebook}?u=${encodeURIComponent(pageUrl)}`;
   }
 }
 
@@ -384,7 +405,7 @@ function initAnimations() {
     }, '-=0.3')
     .from('.scroll-indicator', { opacity: 0, duration: 0.6 }, '-=0.2');
 
-  initCounter('.hero-stat .counter', 43000, '+', '', false, 1.8);
+  initCounter('.hero-stat .counter', DEATH_TOLL, '+', '', false, 1.8);
 
   ScrollTrigger.batch('.reveal', {
     start: 'top 85%',
@@ -433,7 +454,6 @@ function initAnimations() {
     const content = event.querySelector('.event-content');
     const image = event.querySelector('.event-image');
     const isEven = i % 2 === 1;
-    const isFinal = event.classList.contains('timeline-event-final');
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -443,46 +463,27 @@ function initAnimations() {
       }
     });
 
-    if (isFinal) {
-      if (content) {
-        tl.from(content, {
-          scale: 0.85,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out'
-        });
-      }
-      if (image) {
-        tl.from(image, {
-          scale: 0.85,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out'
-        }, '-=0.7');
-      }
-    } else {
-      if (content) {
-        tl.from(content, {
-          x: isEven ? 60 : -60,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power3.out'
-        });
-      }
-      if (image) {
-        tl.to(image, {
-          clipPath: 'inset(0 0% 0 0%)',
-          duration: 1,
-          ease: 'power3.inOut',
-          onStart: () => image.classList.add('revealed'),
-        }, '-=0.5');
-      }
+    if (content) {
+      tl.from(content, {
+        x: isEven ? 60 : -60,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    }
+    if (image) {
+      tl.to(image, {
+        clipPath: 'inset(0 0% 0 0%)',
+        duration: 1,
+        ease: 'power3.inOut',
+        onStart: () => image.classList.add('revealed'),
+      }, '-=0.5');
     }
 
   });
 
   initCounter('#stat1', 30, '', 'M+', true, 0);
-  initCounter('#stat2', 43000, '', '+', true, 0.4);
+  initCounter('#stat2', DEATH_TOLL, '', '+', true, 0.4);
   initCounter('#stat3', 10, '~', '', true, 0.8);
 
   initBarChart();
@@ -645,6 +646,11 @@ document.addEventListener('DOMContentLoaded', () => {
       copyLink();
     });
   }
+
+  document.querySelectorAll('a[data-link]').forEach(a => {
+    const key = a.getAttribute('data-link');
+    if (LINKS[key]) a.href = LINKS[key];
+  });
 
   initMobileMenu();
   initHeaderScroll();
