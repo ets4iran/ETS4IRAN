@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETS4IRAN — Stand With The People of Iran For Freedom</title>
+  <meta name="description" content="Stand with the people of Iran for freedom. Over 43,000 civilians killed in less than 3 days. Learn how you can help.">
+  <meta property="og:title" content="ETS4IRAN — Stand With The People of Iran">
+  <meta property="og:description" content="Over 43,000 civilians killed in less than 3 days. This is not a political conflict. It is state violence against civilians.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" as="script">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" as="script">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- Page Curtain Reveal -->
+  <div class="page-curtain"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-logo">ETS4<span class="logo-iran">IRAN</span></div>
+    <div class="header-nav">
+      <ul class="nav-links">
+        <li><a href="#timeline" data-i18n="navTimeline">Timeline</a></li>
+        <li><a href="#help" data-i18n="navHelp">Help</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="assets/images/hero-night-protests.png" alt="Night protests in Iran with phone lights" loading="eager">
+    </div>
+    <div class="hero-content">
+      <h1>
+        <span data-i18n="heroTitle1">Stand With The People of</span>
+        <span data-i18n="heroTitle2">Iran</span>
+        <span class="word-freedom" data-i18n="heroFreedom">For Freedom</span>
+      </h1>
+      <div class="hero-stat">
+        <span class="counter">+43,000</span>
+        <span data-i18n="heroStatLabel">civilians killed in less than 3 days</span>
+      </div>
+      <p class="hero-quote" data-i18n="heroQuote">This is not a political conflict. It is state violence against civilians.</p>
+      <div class="hero-images">
+        <img src="assets/images/hero-speak-about-iran.png" alt="If you care about human rights, speak about Iran" loading="eager">
+        <img src="assets/images/wlf-protester-barricade.png" alt="Woman Life Freedom protester standing on barricade" loading="eager">
+        <img src="assets/images/hero-freedom-sign.png" alt="Freedom for Iran sign" loading="eager">
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span data-i18n="scrollText">Scroll</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <!-- IRAN & ITS PEOPLE -->
+  <section class="section iran-people" id="iran">
+    <div class="container">
+      <div class="content-grid">
+        <div class="text-content">
+          <span class="section-label reveal" data-i18n="iranLabel">Who We Are</span>
+          <h2 class="section-title reveal" data-i18n="iranTitle">Iran and Its People</h2>
+          <div class="section-divider reveal"></div>
+          <p class="reveal" data-i18n="iranP1">Iran, formerly known as Persia, is the world's oldest continuous civilization linked to a modern state, with over 5,000 years of history. Home to more than 90 million people, Iran has shaped human history through its rich culture — expressed in timeless poetry, music, art, and philosophy — leaving a lasting imprint on global civilization.</p>
+          <p class="reveal" data-i18n="iranP2">Persian people are widely known for their deep sense of hospitality, warmth, and generosity. They are commonly associated with a peaceful, patient, and respectful way of life, valuing dialogue, courtesy, and human connection.</p>
+        </div>
+        <div class="image-showcase reveal-right">
+          <img src="assets/images/persepolis-ruins.png" alt="Persepolis ruins, ancient Iran">
+        </div>
+      </div>
+
+      <div class="landmarks-grid landmarks-fallback reveal-scale">
+        <img src="assets/images/iran-landmarks-collage.png" alt="Iran landmarks — Nasir al-Mulk Mosque, Persepolis, Azadi Tower">
+      </div>
+
+      <div class="hospitality-story">
+        <div class="text-content">
+          <h3 class="reveal" data-i18n="hospitalityTitle">A Legacy of Compassion</h3>
+          <p class="reveal" data-i18n="hospitalityP">One powerful example of the Iranian people's humanity is welcoming approximately 116,000–120,000 Polish refugees during World War II. They arrived in Iran and were sheltered and cared for with compassion and dignity.</p>
+        </div>
+        <div class="reveal-right">
+          <img src="assets/images/polish-refugees-iran-1942.png" alt="Polish refugees in Iran, 1942">
+          <p class="hospitality-caption" data-i18n="hospitalityCaption">Polish refugees in Iran, 1942</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISLAMIC REPUBLIC ≠ IRAN -->
+  <section class="section regime-section" id="regime">
+    <div class="container">
+      <div class="content-grid">
+        <div class="text-content">
+          <span class="section-label reveal" data-i18n="regimeLabel">The Truth</span>
+          <h2 class="regime-title reveal" data-text="Islamic Republic ≠ Iran">
+            <span data-i18n="regimeTitle1">Islamic Republic</span>
+            <span class="ne" data-i18n="regimeNe">≠</span>
+            <span data-i18n="regimeTitle2">Iran</span>
+          </h2>
+          <div class="section-divider section-divider-red reveal"></div>
+          <p class="reveal" data-i18n="regimeP">While Iranians aspire to peace and respect for human life, the government (Islamic Regime) does not represent these values. It is a brutal and authoritarian regime that is built on extreme ideology to justify corruption and suppress the will of its people.</p>
+          <ul class="regime-facts">
+            <li class="reveal" data-i18n="regimeFact1">Rules through fear — using executions, torture, and censorship to silence dissent and crush basic freedoms</li>
+            <li class="reveal" data-i18n="regimeFact2">Systematically targets women, minorities, and activists</li>
+            <li class="reveal" data-i18n="regimeFact3">Exports instability and violence through proxy militias and extremist networks</li>
+            <li class="reveal" data-i18n="regimeFact4">The policies of this regime do not represent the culture, values, or character of its people</li>
+          </ul>
+        </div>
+        <div class="regime-image reveal-right">
+          <img src="assets/images/protesters-facing-police.png" alt="Protesters facing armed police in Iran">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIASPORA & CANADA -->
+  <section class="section section-dark diaspora-section" id="diaspora">
+    <div class="container">
+      <div class="content-grid">
+        <div class="text-content">
+          <span class="section-label reveal" data-i18n="diasporaLabel">Bridges Between Nations</span>
+          <h2 class="section-title reveal" data-i18n="diasporaTitle">Iranian Diaspora & Canada</h2>
+          <div class="section-divider reveal"></div>
+          <p class="reveal" data-i18n="diasporaP1">The Iranian diaspora in Canada has grown through several waves of immigration, shaped by political, social, and economic events. Many Iranians arrived as students, skilled professionals, entrepreneurs, and refugees, contributing extensively to fields such as engineering, medicine, academia, business, and the arts.</p>
+          <p class="reveal" data-i18n="diasporaP2">Today, the Iranian-Canadian community is among the most educated and civically engaged diaspora groups, deeply integrated into Canadian society. Iranians in Québec speak Persian (Farsi) alongside French and English, contributing to Québec's cultural, academic, and economic life while proudly preserving their vibrant cultural identity.</p>
+        </div>
+        <div class="canada-images reveal-right">
+          <img src="assets/images/shah-visiting-montreal.png" alt="Shah of Iran visiting Montreal, 1965">
+          <img src="assets/images/shah-montreal-dinner.png" alt="Shah of Iran at dinner in Montreal, 1965">
+          <img src="assets/images/canada-quebec-iran-shamrock.png" alt="Canada, Quebec and Iran friendship symbol" class="shamrock-img">
+        </div>
+      </div>
+
+      <div class="canada-history">
+        <h3 class="reveal" data-i18n="canadaTitle">Iran-Canada Relationship</h3>
+        <div class="section-divider reveal"></div>
+        <p class="reveal" data-i18n="canadaP1">Before the establishment of the Islamic Republic, Iran–Canada relations were friendly, stable, and constructive. A notable moment was the official visit of Mohammad Reza Shah Pahlavi, the King of Iran, to Canada and Québec in 1965.</p>
+        <p class="reveal canada-history-p2" data-i18n="canadaP2">Relations deteriorated after 1979. Canada formally severed diplomatic relations with Iran in 2012, citing serious concerns over human rights abuses and support for terrorism.</p>
+        <p class="reveal canada-caption" data-i18n="canadaCaption">The Shah of Iran and his wife visiting Montreal, 1965. Source: Les Archives de la Ville de Montréal</p>
+      </div>
+
+      <div class="future-vision reveal-scale">
+        <h3 data-i18n="futureTitle">A Vision for the Future</h3>
+        <p data-i18n="futureVision">A free and democratic Iran can rebuild its strong historic relationship with Canada and unlock many positive opportunities, including expanded trade and investment in technology, agriculture, and industry, as well as the growth of tourism and cultural exchange.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal" data-i18n="timelineLabel">History of Resistance</span>
+        <h2 class="section-title reveal" data-i18n="timelineTitle">Four Decades of Protest and Repression in Iran</h2>
+        <p class="reveal" data-i18n="timelineIntro">For more than 47 years, Iranians have endured the Islamic regime while persistently and peacefully fighting for their fundamental rights.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 1979 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">1979</div>
+          <h3 class="event-title" data-i18n="t1979Title">Women's Protests Against Mandatory Hijab</h3>
+          <ul class="event-details">
+            <li data-i18n="t1979D1">First major protest against Islamic Republic policies</li>
+            <li data-i18n="t1979D2">Women protest compulsory hijab</li>
+            <li data-i18n="t1979D3">State response: repression and rollback of women's rights</li>
+          </ul>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/womens-protest-1979.png" alt="Women's protest 1979">
+        </div>
+      </div>
+
+      <!-- 1980-1988 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">1980–88</div>
+          <h3 class="event-title" data-i18n="t1980Title">Mass Executions of Political Prisoners</h3>
+          <ul class="event-details">
+            <li data-i18n="t1980D1">Years of arrests, executions, political purges (1980–88)</li>
+            <li data-i18n="t1980D2">Thousands executed in secret</li>
+            <li data-i18n="t1980D3">"3-minute courts," no fair trials</li>
+          </ul>
+          <span class="event-death-toll" data-i18n="t1980Death">Death toll: over 5,000</span>
+        </div>
+        <div class="event-image event-image-memorial">
+          <div class="memorial-placeholder">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="none"/><line x1="12" y1="6" x2="12" y2="14"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
+            <p class="memorial-text" data-i18n="t1980Memorial">Classified as crimes against humanity by Human Rights Watch</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1999 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">1999</div>
+          <h3 class="event-title" data-i18n="t1999Title">Student Movement</h3>
+          <ul class="event-details">
+            <li data-i18n="t1999D1">Protests against restrictions on freedom of expression and press censorship</li>
+            <li data-i18n="t1999D2">Violent attack on university dorms</li>
+            <li data-i18n="t1999D3">Start of direct repression against students and youth</li>
+          </ul>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/student-movement-1999.png" alt="Student movement 1999">
+        </div>
+      </div>
+
+      <!-- 2009-2010 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">2009</div>
+          <h3 class="event-title" data-i18n="t2009Title">Green Movement</h3>
+          <ul class="event-details">
+            <li data-i18n="t2009D1">Mass protests after disputed presidential election</li>
+            <li data-i18n="t2009D2">Millions marched nationwide for peaceful protest</li>
+            <li data-i18n="t2009D3">State response: repression, arrests, killings</li>
+            <li data-i18n="t2009D4">Unrest continued for over a year</li>
+          </ul>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/green-movement-march.png" alt="Green Movement, millions marching">
+        </div>
+      </div>
+
+      <!-- 2017 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">2017</div>
+          <h3 class="event-title" data-i18n="t2017Title">Economic Protests Turning Political</h3>
+          <ul class="event-details">
+            <li data-i18n="t2017D1">Protests over economic grievances</li>
+            <li data-i18n="t2017D2">Quickly became anti-regime</li>
+            <li data-i18n="t2017D3">State response: extreme violence & repression</li>
+          </ul>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/protester-tear-gas-2017.png" alt="Protester raising fist in tear gas, 2017">
+        </div>
+      </div>
+
+      <!-- Nov 2019 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">2019</div>
+          <h3 class="event-title" data-i18n="t2019Title">Bloody November</h3>
+          <ul class="event-details">
+            <li data-i18n="t2019D1">Protests over fuel price increases</li>
+            <li data-i18n="t2019D2">Brutally suppressed by the state</li>
+            <li data-i18n="t2019D3">At least 1,500 killed in days</li>
+            <li data-i18n="t2019D4">Deepened the divide between people and the regime</li>
+          </ul>
+          <span class="event-death-toll" data-i18n="t2019Death">At least 1,500 killed</span>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/bloody-november-2019.png" alt="Police confronting protesters, Bloody November 2019">
+        </div>
+      </div>
+
+      <!-- Jan 2020 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">2020</div>
+          <h3 class="event-title" data-i18n="t2020Title">Downing of Flight PS752</h3>
+          <ul class="event-details">
+            <li data-i18n="t2020D1">IRGC shoots down Ukraine International Airlines Flight PS752</li>
+            <li data-i18n="t2020D2">176 civilians killed (55 Canadians, 30 Permanent Residents)</li>
+            <li data-i18n="t2020D3">Protests over state lies and impunity</li>
+            <li data-i18n="t2020D4">State response: Arrests, intimidation, repression</li>
+          </ul>
+          <span class="event-death-toll" data-i18n="t2020Death">176 civilians killed</span>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/ps752-memorial.png" alt="PS752 memorial">
+        </div>
+      </div>
+
+      <!-- Sep 2022 -->
+      <div class="timeline-event">
+        <div class="event-content">
+          <div class="event-year">2022</div>
+          <h3 class="event-title" data-i18n="t2022Title">Woman, Life, Freedom</h3>
+          <ul class="event-details">
+            <li data-i18n="t2022D1">Nationwide protests after the killing of Mahsa Amini</li>
+            <li data-i18n="t2022D2">Strong participation of women and youth</li>
+            <li data-i18n="t2022D3">Against coercion, repression, injustice</li>
+            <li data-i18n="t2022D4">Protests lasted nearly six months</li>
+            <li data-i18n="t2022D5">Hundreds killed, including children and teenagers</li>
+          </ul>
+        </div>
+        <div class="event-image event-image-double">
+          <img src="assets/images/woman-life-freedom-highway.png" alt="Woman standing on car, highway of cars, Woman Life Freedom movement">
+          <img src="assets/images/mahsa-amini-tribute.png" alt="Mahsa Amini tribute with roses and Woman Life Freedom text" class="secondary-img">
+        </div>
+      </div>
+
+      <!-- Dec 2025 -->
+      <div class="timeline-event timeline-event-final">
+        <div class="event-content">
+          <div class="event-year event-year-highlight">2025</div>
+          <h3 class="event-title" data-i18n="t2025Title">Iran Sun and Lion National Revolution</h3>
+          <ul class="event-details">
+            <li data-i18n="t2025D1">Began amid deep economic crisis, political repression, and erosion of public trust</li>
+            <li data-i18n="t2025D2">Rapidly expanded nationwide across multiple cities</li>
+            <li data-i18n="t2025D3">Peak of protests: January 8 and 9, following a call by Prince Reza Pahlavi</li>
+            <li data-i18n="t2025D4">Unofficial estimates: 20–30 million participants nationwide</li>
+          </ul>
+          <span class="event-death-toll" data-i18n="t2025Death">Estimated deaths: 43,000+</span>
+        </div>
+        <div class="event-image">
+          <img src="assets/images/revolution-flag-statue.png" alt="Person on statue waving Iranian flag during 2025 revolution">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REVOLUTION -->
+  <section class="section revolution-section" id="revolution">
+    <div class="revolution-bg">
+      <img src="assets/images/revolution-night-crowd.png" alt="Night crowd protests" loading="lazy">
+    </div>
+    <div id="revolution-particles"></div>
+    <div class="container revolution-content">
+      <div class="revolution-header">
+        <span class="section-label reveal" data-i18n="revLabel">Current Crisis</span>
+        <h2 class="reveal" data-i18n="revTitle">Iran Sun and Lion National Revolution</h2>
+        <p class="revolution-subtitle reveal" data-i18n="revSubtitle">December 2025 to January 2026</p>
+      </div>
+
+      <div class="revolution-callout reveal">
+        <p data-i18n="revCallout">In just 3 days, the Iranian regime killed more civilians than many of the worst massacres in modern history combined.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-number" id="stat1" data-i18n="revStat1Num">30M+</div>
+          <div class="stat-label" data-i18n="revStat1Label">Estimated participants nationwide</div>
+        </div>
+        <div class="stat-card highlight reveal">
+          <div class="stat-number" id="stat2" data-i18n="revStat2Num">43,000+</div>
+          <div class="stat-label" data-i18n="revStat2Label">Estimated civilian deaths</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number" id="stat3" data-i18n="revStat3Num">~10</div>
+          <div class="stat-label" data-i18n="revStat3Label">People killed every minute during peak violence</div>
+        </div>
+      </div>
+      <p class="stats-source"><a href="https://humanrightsintl.com/2026/01/20/latest-human-rights-report-43000-killed-in-the-crackdown-on-protests-in-iran-for-immediate-release/" target="_blank" rel="noopener noreferrer" data-i18n="revSource">Source: International Human Rights Report</a></p>
+
+      <div class="massacre-chart reveal-scale">
+        <h3 data-i18n="chartTitle">Scale of Violence — Massacres in History</h3>
+        <div class="chart-rows">
+          <div class="chart-row">
+            <div class="chart-row-label">Chemical Attack, Syria<br><span class="bar-sublabel">2013 · 1 day</span></div>
+            <div class="chart-row-bar-wrap">
+              <div class="chart-row-bar" data-width="4.2" data-delay="0"><span class="chart-row-value">1,400</span></div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-row-label">Bloody November, Iran<br><span class="bar-sublabel">2019 · 7 days</span></div>
+            <div class="chart-row-bar-wrap">
+              <div class="chart-row-bar" data-width="4.5" data-delay="0.1"><span class="chart-row-value">1,500</span></div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-row-label">September 11<br><span class="bar-sublabel">2001 · 1 day</span></div>
+            <div class="chart-row-bar-wrap">
+              <div class="chart-row-bar" data-width="9" data-delay="0.2"><span class="chart-row-value">3,000</span></div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-row-label">Srebrenica<br><span class="bar-sublabel">1995 · 5 days</span></div>
+            <div class="chart-row-bar-wrap">
+              <div class="chart-row-bar" data-width="21" data-delay="0.3"><span class="chart-row-value">7,000</span></div>
+            </div>
+          </div>
+          <div class="chart-row chart-row-iran">
+            <div class="chart-row-label">Iran Revolution<br><span class="bar-sublabel">Jan 2026 · 3 days</span></div>
+            <div class="chart-row-bar-wrap">
+              <div class="chart-row-bar iran-bar" data-width="100" data-delay="1.0"><span class="chart-row-value">43,000+</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blackout-info reveal">
+        <div class="blackout-icon"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--accent-red)" stroke-width="2"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+        <div>
+          <h4 data-i18n="blackoutTitle">Near-Total Internet Blackout</h4>
+          <p data-i18n="blackoutDesc">Authorities imposed a nationwide internet shutdown starting January 8 to conceal the true scale of atrocities. This is a key factor making independent death toll verification impossible.</p>
+        </div>
+      </div>
+
+      <div class="detention-info reveal">
+        <h3 data-i18n="detentionTitle">Nationwide Shutdown and Repression</h3>
+        <ul>
+          <li data-i18n="detentionD1">Approximately 50,000 people arrested — many charged with "moharebeh" (waging war against God), which carries the death penalty</li>
+          <li data-i18n="detentionD2">Detainees reportedly subjected to torture, sexual assault, and injection of unknown substances linked to deaths in custody</li>
+          <li data-i18n="detentionD3">Reports indicate a high risk of heavy sentences and expedited executions</li>
+          <li data-i18n="detentionD4">Pressure on families and restrictions on information continue</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW YOU CAN HELP -->
+  <section class="section cta-section" id="help">
+    <div class="container">
+      <span class="section-label reveal" data-i18n="ctaLabel">Take Action</span>
+      <h2 class="section-title reveal" data-i18n="ctaTitle">How You Can Support Us</h2>
+      <p class="reveal" data-i18n="ctaIntro">Your voice matters. Every share, every conversation, every action makes a difference.</p>
+
+      <div class="share-buttons reveal">
+        <a class="share-btn twitter" href="#" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span data-i18n="shareTwitter">Share on X</span>
+        </a>
+        <a class="share-btn facebook" href="#" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span data-i18n="shareFacebook">Share on Facebook</span>
+        </a>
+        <a class="share-btn copy-link" href="#">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+          <span data-i18n="shareCopyLink">Copy Link</span>
+        </a>
+      </div>
+
+      <div class="action-list action-list-primary">
+        <div class="action-item action-primary reveal">
+          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <h4 data-i18n="action1Title">Contact Officials</h4>
+            <p data-i18n="action1Desc">Contact Canadian and Quebec officials. Demand action against the regime and request the immediate release of prisoners in danger of execution.</p>
+          </div>
+        </div>
+        <div class="action-item action-primary reveal">
+          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></div>
+          <div>
+            <h4 data-i18n="action3Title">Speak Up</h4>
+            <p data-i18n="action3Desc">Raise awareness with family and friends, and share verified information on social media (Instagram, X, Facebook, TikTok).</p>
+          </div>
+        </div>
+        <div class="action-item action-primary reveal">
+          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div>
+            <h4 data-i18n="action6Title">Pass It On</h4>
+            <p data-i18n="action6Desc">Read this, then pass it on. Be our voice.</p>
+          </div>
+        </div>
+      </div>
+      <div class="action-list action-list-secondary">
+        <div class="action-item action-secondary reveal">
+          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="none"/><path d="M7 11V8a5 5 0 0 1 10 0v3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+          <div>
+            <h4 data-i18n="action2Title">Join Our Rally</h4>
+            <p data-i18n="action2Desc">Join our rally in Montreal every weekend to show support and solidarity.</p>
+          </div>
+        </div>
+        <div class="action-item action-secondary reveal">
+          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+          <div>
+            <h4 data-i18n="action4Title">Install Conduit</h4>
+            <p data-i18n="action4Desc">Help Iranians stay connected by installing Conduit on your device.</p>
+          </div>
+        </div>
+        <div class="action-item action-secondary reveal">
+          <div class="action-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+          <div>
+            <h4 data-i18n="action5Title">Demand Accountability</h4>
+            <p data-i18n="action5Desc">Demand the deportation of IRGC officials' families from Canada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-footer reveal">
+        <div class="qr-code">
+          <img src="assets/images/qr-code.png" alt="QR Code for more information">
+        </div>
+        <div class="cta-telegram">
+          <p data-i18n="ctaScan">Scan for more info, daily updates, and protest schedule</p>
+          <p data-i18n="ctaTelegram">Join our Telegram group for collaboration and updates</p>
+          <a class="telegram-btn" href="https://t.me/+U08o10_iOSA0Yzk0" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <span data-i18n="ctaTelegramBtn">Join ETS4IRAN on Telegram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-logo footer-brand">ETS4<span class="logo-iran">IRAN</span></div>
+    <p data-i18n="footerAuthors">Authors: A group of Iranian students at ÉTS, Montreal</p>
+    <p data-i18n="footerDate">January 2026</p>
+  </footer>
+
+  <!-- Floating CTA Button -->
+  <a class="floating-cta" href="#help" aria-label="Take Action">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span data-i18n="navHelp">Help</span>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
